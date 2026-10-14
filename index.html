@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parametric Circular Saw Offset Gauge</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #222;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    header { border-bottom: 2px solid #eaeaea; margin-bottom: 24px; }
+    h1 { margin-bottom: 8px; color: #111; }
+    .subtitle { color: #555; font-size: 1.15rem; margin-top: 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
+    .card { background: #f9f9fb; padding: 18px; border-radius: 8px; border: 1px solid #e1e4e8; }
+    .card img { max-width: 100%; border-radius: 4px; }
+    .viewer-container {
+      margin-top: 32px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    iframe { width: 100%; height: 600px; border: none; }
+    .callout {
+      background: #eef7ff;
+      border-left: 4px solid #0366d6;
+      padding: 12px 16px;
+      margin: 20px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>3D Offset Ruler Gauge for Circular Saws</h1>
+    <p class="subtitle">Parametric design, 2D sketch DSLs, and AI-assisted CAD in OpenJSCAD</p>
+  </header>
+
+  <section>
+    <h2>Accurate Circular Saw Cuts Made Easy</h2>
+    <p>
+      Lining up a straight edge or clamping guide for a circular saw usually requires measuring the shoe-to-blade
+      distance every single cut. This customizable bracket locks onto a standard steel ruler, physically setting the exact
+      blade offset without continuous recalculation or test cuts.
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <h3>1. Measure Your Saw</h3>
+        <p>Measure the exact distance from the straight edge of your saw base plate to the outer tooth of the blade.</p>
+      </div>
+      <div class="card">
+        <h3>2. Set Ruler Tolerances</h3>
+        <p>Measure your ruler width and thickness with calipers. Add at least <code>0.012"</code> for a smooth sliding fit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>AI-Assisted CAD with a Custom 2D DSL</h2>
+    <p>
+      Instead of calculating complex polygon coordinate lists or CSG intersections by hand, this project uses an AI-friendly
+      coordinate sketch pipeline (<code>plot2d</code>). You can dictate paths using relative moves (<code>u</code>, <code>d</code>,
+      <code>l</code>, <code>r</code>), declare fillet radii (<code>f</code>), and interpolate loops smoothly before linear extrusion.
+    </p>
+  </section>
+
+  <section class="callout">
+    <strong>Customize & Export:</strong> Use the interactive control panel on the left of the viewer below to set your dimensions,
+    inspect the 3D model, and click <strong>Export (STL/3MF)</strong> to download a file ready for your 3D printer.
+  </section>
+
+  <div class="viewer-container">
+    <!-- Replace USERNAME and REPO with your GitHub details once committed -->
+    <iframe
+      src="https://openjscad.xyz/?uri=https://raw.githubusercontent.com/Ken2072/ruler-offset-gauge/main/gauge_standalone.js"
+      title="3D Gauge Customizer">
+    </iframe>
+  </div>
+
+</body>
+</html>
