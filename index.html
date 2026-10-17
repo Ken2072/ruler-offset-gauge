@@ -13,28 +13,75 @@
       margin: 0 auto;
       padding: 24px;
     }
-    header { border-bottom: 2px solid #eaeaea; margin-bottom: 24px; }
-    h1 { margin-bottom: 8px; color: #111; }
-    .subtitle { color: #555; font-size: 1.15rem; margin-top: 0; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0; }
-    .card { background: #f9f9fb; padding: 18px; border-radius: 8px; border: 1px solid #e1e4e8; }
-    .card h3 { margin-top: 0; color: #111; }
+    header {
+      border-bottom: 2px solid #eaeaea;
+      margin-bottom: 24px;
+    }
+    h1 {
+      margin-bottom: 8px;
+      color: #111;
+    }
+    .subtitle {
+      color: #555;
+      font-size: 1.15rem;
+      margin-top: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 24px 0;
+    }
+    .card {
+      background: #f9f9fb;
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid #e1e4e8;
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #111;
+    }
     .viewer-container {
-      margin-top: 28px;
+      margin-top: 24px;
       border: 1px solid #ddd;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
-    iframe { width: 100%; height: 650px; border: none; }
+    iframe {
+      width: 100%;
+      height: 650px;
+      border: none;
+    }
     .callout {
-      background: #eef7ff;
-      border-left: 4px solid #0366d6;
-      padding: 12px 16px;
+      background: #fff8f0;
+      border-left: 4px solid #e65100;
+      padding: 14px 18px;
       margin: 20px 0;
       border-radius: 0 4px 4px 0;
     }
-    code { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; }
+    .callout p {
+      margin: 0 0 6px 0;
+    }
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+    .notice-title {
+      font-size: 0.95rem;
+      color: #b33a00;
+      font-weight: 700;
+    }
+    .notice-sub {
+      font-size: 0.9rem;
+      color: #444;
+    }
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
   </style>
 </head>
 <body>
@@ -65,7 +112,12 @@
   </section>
 
   <section class="callout">
-    <strong>How to Customize & Export:</strong> In the 3D viewer below, adjust the dimension inputs on the panel to match your saw and ruler. Click <strong>Export (STL / 3MF)</strong> to download a file ready for 3D printing.
+    <p class="notice-title">
+      ⚠️ Clearance Notice: Measure your ruler with calipers and add at least 0.012" clearance to Ruler H and Ruler W before entering values below.
+    </p>
+    <p class="notice-sub">
+      Enter your dimensions in inches, inspect the 3D preview, and click <strong>Export (STL / 3MF)</strong> to download your printable file.
+    </p>
   </section>
 
   <div class="viewer-container">
