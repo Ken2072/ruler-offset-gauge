@@ -166,31 +166,27 @@ function plot2d(txt, externalVars = {}) {
   return polygon({ points: finalPoints });
 }
 
-// 3. User Parameters
+
+// 3. User Parameters (Clean labels, no oversized header)
 const getParameterDefinitions = () => {
   return [
-    {
-      name: 'notesGroup',
-      type: 'group',
-      caption: 'NOTICE: Add at least 0.012" clearance to ruler dims'
-    },
     {
       name: 'input_rulerHeight_inches',
       type: 'float',
       initial: 0.261,
-      caption: 'Ruler H (in):'
+      caption: 'Ruler H:'
     },
     {
       name: 'input_rulerWidth_inches',
       type: 'float',
       initial: 1.431,
-      caption: 'Ruler W (in):'
+      caption: 'Ruler W:'
     },
     {
       name: 'blade_offset_inches',
       type: 'float',
       initial: 4.75,
-      caption: 'Blade Offset (in):'
+      caption: 'Offset:'
     }
   ];
 };
