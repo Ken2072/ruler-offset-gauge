@@ -145,15 +145,10 @@
   </section>
 
   <div class="viewer-container">
-    <div class="viewer-container">
-  <iframe id="jscad-viewer" title="3D Circular Saw Offset Gauge Customizer"></iframe>
-</div>
-
-<script>
-  // Appends the current time so the browser and jscad.app NEVER cache during a reload
-  const scriptUrl = 'https://raw.githubusercontent.com/Ken2072/ruler-offset-gauge/main/gauge_standalone.js?t=' + Date.now();
-  document.getElementById('jscad-viewer').src = 'https://jscad.app/#' + encodeURIComponent(scriptUrl);
-</script>
+    <iframe
+      src="https://jscad.app/#https://cdn.jsdelivr.net/gh/Ken2072/ruler-offset-gauge@main/gauge_standalone.js?v=5"
+      title="3D Circular Saw Offset Gauge Customizer">
+    </iframe>
   </div>
 
   <section class="guide-step">
@@ -161,7 +156,7 @@
     <ul>
       <li><strong>1/4" Hex Nut</strong> (press-fits into the gauge nut pocket).</li>
       <li><strong>1/4" Thumb Screw / Wing Bolt</strong> (threads through the nut to lock the gauge securely onto your ruler).</li>
-      <li><strong>Standard Steel Ruler</strong> (e.g., 1.43" wide straightedge ruler).</li>
+      <li><strong>Standard Yardstick </strong> (e.g., 1.43" wide straightedge ruler).</li>
     </ul>
   </section>
 
@@ -169,7 +164,7 @@
     <h3>Calibration & Verification Workflow</h3>
     <ol>
       <li>
-        <strong>Test Print with Slicer Pause:</strong> Before committing to a full print, slice the bracket and insert a pause command at layer height ~10 mm. Slide your actual steel ruler into the channel while paused to verify smooth sliding clearance before finishing the job.
+        <strong>Test Print with Slicer Pause:</strong> Before committing to a full print, slice the bracket and insert a pause command at layer height ~10 mm. Slide your actual ruler into the channel while paused to verify smooth sliding clearance before finishing the job.
       </li>
       <li>
         <strong>Refine Clearance if Needed:</strong> If the fit is too tight or loose, adjust Ruler H / Ruler W in the customizer and re-export.
