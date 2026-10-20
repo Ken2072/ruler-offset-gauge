@@ -1,6 +1,6 @@
 # 3D Circular Saw Offset Ruler Gauge
 
-Parametric 3D-printable alignment bracket designed to clamp onto a standard steel ruler, enabling repeatable and dead-accurate straightedge cuts with circular saws without continuous measuring or pencil offset lines.
+Parametric 3D-printable alignment bracket designed to clamp onto a yardstick ruler, enabling repeatable and dead-accurate straightedge cuts with circular saws without continuous measuring or pencil offset lines.
 
 ## Live Customizer
 
@@ -20,9 +20,9 @@ Customize and export STL / 3MF directly in your browser:
 ## Printing & Calibration Workflow
 
 1. **Test-Fit with Slicer Pause:** 
-   Add a pause command at layer height ~10 mm in your slicer. When paused, slide your steel ruler into the slot to verify clearance before finishing the print.
+   Add a pause command at layer height ~10 mm in your slicer. When paused, slide your yardstick into the slot to verify clearance before finishing the print.
 2. **Clearance Rule:**
-   Always measure your ruler with calipers and add at least `0.012"` clearance to both `Ruler H` and `Ruler W`.
+   Always measure your ruler with calipers and add at least `0.012"` clearance to both `Ruler H` and `Ruler W`. Also sand end of yardstick to split zero mark.
 3. **Cut Two 5" Test Boards:**
    Lock the gauge to your ruler, align your straightedge or speed square clamp, and make two test cuts.
 4. **Measure with Digital Calipers:**
