@@ -145,10 +145,15 @@
   </section>
 
   <div class="viewer-container">
-    <iframe
-      src="https://jscad.app/#https://cdn.jsdelivr.net/gh/Ken2072/ruler-offset-gauge@main/gauge_standalone.js?v=5"
-      title="3D Circular Saw Offset Gauge Customizer">
-    </iframe>
+    <div class="viewer-container">
+  <iframe id="jscad-viewer" title="3D Circular Saw Offset Gauge Customizer"></iframe>
+</div>
+
+<script>
+  // Appends the current time so the browser and jscad.app NEVER cache during a reload
+  const scriptUrl = 'https://raw.githubusercontent.com/Ken2072/ruler-offset-gauge/main/gauge_standalone.js?t=' + Date.now();
+  document.getElementById('jscad-viewer').src = 'https://jscad.app/#' + encodeURIComponent(scriptUrl);
+</script>
   </div>
 
   <section class="guide-step">
