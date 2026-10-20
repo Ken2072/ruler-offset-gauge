@@ -7,6 +7,7 @@ const { subtract } = jscad.booleans;
 const { extrudeLinear } = jscad.extrusions;
 const { colorize, colorNameToRgb } = jscad.colors;
 const { geom2 } = jscad.geometries;
+const { measureBoundingBox } = require('@jscad/modeling').measurements;
 
 // Unit helper
 const mm = (inches) => inches * 25.4;
@@ -172,27 +173,33 @@ const getParameterDefinitions = () => {
   return [
     {
       name: 'input_rulerHeight_inches',
-      type: 'float',
-      initial: 0.261,
-      caption: 'Ruler H:'
+      type: 'text',
+      initial: '0.261',
+      caption: 'Ruler Thickness (in):'
     },
     {
       name: 'input_rulerWidth_inches',
-      type: 'float',
-      initial: 1.431,
-      caption: 'Ruler W:'
+      type: 'text',
+      initial: '1.431',
+      caption: 'Ruler Width (in):'
     },
     {
       name: 'blade_offset_inches',
-      type: 'float',
-      initial: 4.75,
-      caption: 'Offset:'
+      type: 'text',
+      initial: '4.75',
+      caption: 'Saw Offset (in):'
     }
   ];
 };
 
 // 4. Main Model Assembly
 const main = (params = {}) => {
+  
+	
+  const rulerHeight = parseFloat(params.input_rulerHeight_inches);
+  const rulerWidth = parseFloat(params.input_rulerWidth_inches);
+  const bladeOffset = parseFloat(params.blade_offset_inches);
+ 
   const input_rulerHeight_inches = params.input_rulerHeight_inches !== undefined ? params.input_rulerHeight_inches : 0.261;
   const input_rulerWidth_inches = params.input_rulerWidth_inches !== undefined ? params.input_rulerWidth_inches : 1.431;
   const blade_offset_inches = params.blade_offset_inches !== undefined ? params.blade_offset_inches : 4.75;
@@ -268,7 +275,17 @@ const main = (params = {}) => {
     alpha: 1
   });
 
-  return [subtract(shp, awlslot, nutslot, rulerslot, hole1, hole2, hole3)];
+  let gauge = [subtract(shp, awlslot, nutslot, rulerslot, hole1, hole2, hole3)];
+  
+  // set gauge end on base for printing without supports
+  
+  gauge = rotate([0,-ninty,0],gauge)
+   
+  const bounds = measureBoundingBox(gauge);
+  const minZ = bounds[0][2];
+  
+  return  translate([0, 0, -minZ], gauge);
+
 };
 
 module.exports = { main, getParameterDefinitions };
