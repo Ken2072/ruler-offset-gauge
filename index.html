@@ -9,7 +9,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.6;
       color: #222;
-      max-width: 960px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 24px;
     }
@@ -18,41 +18,29 @@
       margin-bottom: 24px;
     }
     h1 {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       color: #111;
     }
     .subtitle {
       color: #555;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       margin-top: 0;
     }
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      margin: 24px 0;
+      margin: 20px 0;
     }
     .card {
       background: #f9f9fb;
-      padding: 18px;
+      padding: 16px 20px;
       border-radius: 8px;
       border: 1px solid #e1e4e8;
     }
     .card h3 {
       margin-top: 0;
       color: #111;
-    }
-    .viewer-container {
-      margin-top: 24px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    }
-    iframe {
-      width: 100%;
-      height: 650px;
-      border: none;
     }
     .callout {
       background: #fff8f0;
@@ -72,9 +60,49 @@
       color: #b33a00;
       font-weight: 700;
     }
-    .notice-sub {
-      font-size: 0.9rem;
-      color: #444;
+    .viewer-container {
+      margin: 24px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    iframe {
+      width: 100%;
+      height: 650px;
+      border: none;
+    }
+    .guide-step {
+      background: #fff;
+      border: 1px solid #e1e4e8;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 24px 0;
+    }
+    .guide-step h3 {
+      margin-top: 0;
+      color: #222;
+    }
+    .image-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .image-card {
+      text-align: center;
+    }
+    .image-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .caption {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 6px;
     }
     code {
       background: #f0f0f0;
@@ -82,50 +110,100 @@
       border-radius: 3px;
       font-size: 0.9em;
     }
+    ol, ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .btn {
+      display: inline-block;
+      background: #2ea44f;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>3D Offset Ruler Gauge for Circular Saws</h1>
-    <p class="subtitle">Custom 3D-printable alignment bracket for repeatable, accurate straightedge cuts</p>
+    <p class="subtitle">Parametric 3D-printable bracket for repeatable, dead-accurate straightedge cuts</p>
   </header>
 
-  <section>
-    <h2>Accurate Circular Saw Cuts Made Easy</h2>
-    <p>
-      Lining up a straightedge clamp guide for a circular saw usually requires measuring and recalculating the shoe-to-blade
-      distance for every single cut. This customizable bracket locks onto your standard steel ruler, physically setting the exact
-      blade offset without continuous re-measuring or test cuts.
+  <section class="callout">
+    <p class="notice-title">
+      ⚠️ Sizing Notice: Measure your ruler with calipers and add at least 0.012" clearance to Ruler H and Ruler W.
     </p>
+    <p style="margin: 0; font-size: 0.9rem; color: #444;">
+      Enter your custom dimensions in the viewer below, inspect the orientation, and export an STL or 3MF.
+    </p>
+  </section>
 
-    <div class="grid">
-      <div class="card">
-        <h3>1. Measure Your Saw</h3>
-        <p>Measure the exact distance from the straight edge of your saw's base plate (shoe) to the outer tooth of the blade.</p>
+  <div class="viewer-container">
+    <iframe
+      src="https://jscad.app/#https://cdn.jsdelivr.net/gh/Ken2072/ruler-offset-gauge@main/gauge_standalone.js?v=5"
+      title="3D Circular Saw Offset Gauge Customizer">
+    </iframe>
+  </div>
+
+  <section class="guide-step">
+    <h3>Required Hardware</h3>
+    <ul>
+      <li><strong>1/4" Hex Nut</strong> (press-fits into the gauge nut pocket).</li>
+      <li><strong>1/4" Thumb Screw / Wing Bolt</strong> (threads through the nut to lock the gauge securely onto your ruler).</li>
+      <li><strong>Standard Steel Ruler</strong> (e.g., 1.43" wide straightedge ruler).</li>
+    </ul>
+  </section>
+
+  <section class="guide-step">
+    <h3>Calibration & Verification Workflow</h3>
+    <ol>
+      <li>
+        <strong>Test Print with Slicer Pause:</strong> Before committing to a full print, slice the bracket and insert a pause command at layer height ~10 mm. Slide your actual steel ruler into the channel while paused to verify smooth sliding clearance before finishing the job.
+      </li>
+      <li>
+        <strong>Refine Clearance if Needed:</strong> If the fit is too tight or loose, adjust Ruler H / Ruler W in the customizer and re-export.
+      </li>
+      <li>
+        <strong>Cut Two 5" Test Boards:</strong> Set your gauge to 5.00", lock it with the thumbscrew, butt your speed square or straightedge against the fence, and make two clean test cuts.
+      </li>
+      <li>
+        <strong>Verify Accuracy with Calipers:</strong> Measure the cut blocks with digital calipers. As shown below, an accurate offset dialed into the gauge consistently yields dead-accurate cuts (e.g., 4.99" / 5.00").
+      </li>
+      <li>
+        <strong>Dial-In Saw Offset:</strong> If your cut block measures slightly over or under your target, adjust your <code>Offset</code> parameter by that exact difference and reprint for lifetime accuracy on that circular saw.
+      </li>
+    </ol>
+
+    <div class="image-row">
+      <div class="image-card">
+        <img src="gauge-setup.jpg" alt="Offset gauge locked to ruler with thumbscrew and speed square clamp">
+        <p class="caption">Gauge locked to ruler using 1/4" thumbscrew, referenced against speed square clamp</p>
       </div>
-      <div class="card">
-        <h3>2. Set Ruler Tolerances</h3>
-        <p>Measure your ruler width and thickness with calipers. Be sure to include your desired sliding clearance (e.g., at least <code>0.012"</code>).</p>
+      <div class="image-card">
+        <img src="test-cut-calipers.jpg" alt="Digital calipers measuring 4.99 inch cut test board">
+        <p class="caption">Test cut verification with calipers measuring 4.99" on a 5.00" target block</p>
       </div>
     </div>
   </section>
 
-  <section class="callout">
-    <p class="notice-title">
-      ⚠️ Clearance Notice: Measure your ruler with calipers and add at least 0.012" clearance to Ruler H and Ruler W before entering values below.
-    </p>
-    <p class="notice-sub">
-      Enter your dimensions in inches, inspect the 3D preview, and click <strong>Export (STL / 3MF)</strong> to download your printable file.
-    </p>
+  <section class="guide-step">
+    <h3>Offline / Local Customizer Option</h3>
+    <p>You do not need to use GitHub Pages to customize this model. You can run the script entirely offline in your own browser:</p>
+    <ol>
+      <li>Download the standalone script directly: <br>
+        <a class="btn" href="gauge_standalone.js" download>Download gauge_standalone.js</a>
+      </li>
+      <li>Open <a href="https://jscad.app" target="_blank" rel="noopener">https://jscad.app</a> in Chrome, Edge, or Firefox.</li>
+      <li>Drag and drop <code>gauge_standalone.js</code> from your file explorer directly onto the JSCAD browser window.</li>
+      <li>Adjust your parameters in the left panel and click <strong>Export</strong> to generate your STL/3MF locally.</li>
+    </ol>
   </section>
-  <div class="viewer-container">
-  <iframe
-    src="https://jscad.app/#https://cdn.jsdelivr.net/gh/Ken2072/ruler-offset-gauge@main/gauge_standalone.js?v=5"
-    title="3D Circular Saw Offset Gauge Customizer">
-  </iframe>
-</div>
- 
 
 </body>
 </html>
