@@ -22,9 +22,9 @@ Customize and export STL / 3MF directly in your browser:
 1. **Test-Fit with Slicer Pause:** 
    Add a pause command at layer height ~10 mm in your slicer. When paused, slide your yardstick into the slot to verify clearance before finishing the print.
 2. **Clearance Rule:**
-   Always measure your ruler with calipers and add at least `0.012"` clearance to both `Ruler H` and `Ruler W`. Also sand end of yardstick to split zero mark.
+   Always measure your ruler with calipers and add at least `0.012"` clearance to both `Ruler H` and `Ruler W`. Sand end of yardstick to split zero mark.
 3. **Cut Two 5" Test Boards:**
-   Lock the gauge to your ruler, align your straightedge or speed square clamp, and make two test cuts.
+   Use awl slot to slide gauge for precise alignment. Lock the gauge to your ruler, align your straightedge or speed square clamp, and make two test cuts. 
 4. **Measure with Digital Calipers:**
    Check the cut length with calipers. If the test piece is slightly off (e.g., 4.99" vs 5.00"), refine the `Offset` value in the script by that delta and reprint for dialed-in precision.
 
