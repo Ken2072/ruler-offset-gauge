@@ -2,12 +2,13 @@ const jscad = require('@jscad/modeling');
 
 const { polygon } = jscad.primitives;
 const { cuboid: _cuboid, cylinder } = jscad.primitives;
-const { translate, rotate } = jscad.transforms;
+const { translate, rotate,center } = jscad.transforms;
 const { subtract } = jscad.booleans;
 const { extrudeLinear } = jscad.extrusions;
 const { colorize, colorNameToRgb } = jscad.colors;
 const { geom2 } = jscad.geometries;
 const { measureBoundingBox } = require('@jscad/modeling').measurements;
+
 
 // Unit helper
 const mm = (inches) => inches * 25.4;
@@ -284,8 +285,10 @@ const main = (params = {}) => {
   const bounds = measureBoundingBox(gauge);
   const minZ = bounds[0][2];
   
-  return  translate([0, 0, -minZ], gauge);
-
+  const finalSolid = translate([0, 0, -minZ], gauge);
+// Replace: return finalSolid;
+// With:
+return center({ axes: [true, true, false] }, finalSolid);
 };
 
 module.exports = { main, getParameterDefinitions };
